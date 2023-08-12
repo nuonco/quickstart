@@ -4,7 +4,7 @@ resource "nuon_terraform_module_component" "example" {
 
   connected_repo = {
     directory = "example/terraform"
-    repo      = data.nuon_connected_repo.customer_noteable.name
+    repo      = var.example_app_repo
     branch    = "main"
   }
 

@@ -10,6 +10,5 @@ terraform {
 }
 
 provider "nuon" {
-  api_auth_token = var.api_auth_token
-  api_url        = "https://api.prod.nuon.co/graphql"
+  api_url = "https://api.prod.nuon.co/graphql"
 }

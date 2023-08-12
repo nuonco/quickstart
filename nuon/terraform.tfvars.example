@@ -1,5 +1,1 @@
-org_id = ""
-
-example_app_id = ""
-
-api_auth_token = ""
+example_app_repo = "powertoolsdev/quickstart"

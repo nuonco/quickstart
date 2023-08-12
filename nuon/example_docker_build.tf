@@ -5,7 +5,7 @@ resource "nuon_docker_build_component" "example" {
   dockerfile = "Dockerfile"
   connected_repo = {
     directory = "example/docker"
-    repo      = data.nuon_connected_repo.customer_noteable.name
+    repo      = var.example_app_repo
     branch    = "main"
   }
 
