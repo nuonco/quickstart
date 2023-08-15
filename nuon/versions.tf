@@ -9,6 +9,4 @@ terraform {
   }
 }
 
-provider "nuon" {
-  api_url = "https://api.prod.nuon.co/graphql"
-}
+provider "nuon" {}

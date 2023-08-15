@@ -10,7 +10,7 @@ First, create a fork of this repo. If you have a Github org with other apps you'
 
 Then, sign up for an account, create a Nuon org, and connect to your Github through our [Dashboard](https://app.nuon.co/sign-in). That will provide you with an auth token and org ID. Set those as env vars for the TF provider and the CLI:
 
-1. `export NUON_AUTH_TOKEN={{ your_auth_token }}`
+1. `export NUON_API_TOKEN={{ your_auth_token }}`
 1. `export NUON_ORG_ID={{ your_org_id }}`
 
 ## Creating an App
@@ -32,7 +32,7 @@ You don't need to own the AWS account you want to install to. Nuon just needs an
 For the purposes of this quickstart, let's create an install in an AWS account that you own:
 
 1. Sign into whatever AWS account you want to create the install in.
-1. Go to the Dashboard, and click on the "Create Install IAM Role". This will take you to an AWS Cloudformation flow to create the IAM role Nuon will need.
+1. Apply the Terraform config in `/bootstrap`. This will create a role an policy with the permissions to create provision a sandbox.
 1. Once the role is created, copy it's ARN.
 1. Uncomment the `nuon_install` resource in `./nuon/installs.tf`, and paste the ARN there.
 1. Run `terraform plan` to verify it's ready to go.
