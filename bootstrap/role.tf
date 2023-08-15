@@ -8,7 +8,31 @@ resource "aws_iam_role" "bootstrap" {
         "Sid" : "",
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : "${var.trusted_principal}"
+          "AWS" : "arn:aws:iam::676549690856:root"
+        },
+        "Action" : "sts:AssumeRole"
+      },
+      {
+        "Sid" : "",
+        "Effect" : "Allow",
+        "Principal" : {
+          "AWS" : "arn:aws:iam::007754799877:root"
+        },
+        "Action" : "sts:AssumeRole"
+      },
+      {
+        "Sid" : "",
+        "Effect" : "Allow",
+        "Principal" : {
+          "AWS" : "arn:aws:iam::814326426574:root"
+        },
+        "Action" : "sts:AssumeRole"
+      },
+      {
+        "Sid" : "",
+        "Effect" : "Allow",
+        "Principal" : {
+          "AWS" : "arn:aws:iam::766121324316:root"
         },
         "Action" : "sts:AssumeRole"
       }
