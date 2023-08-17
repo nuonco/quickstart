@@ -34,17 +34,27 @@ To create the example app in your Nuon org:
 
 ## Creating an Install
 
-An install is a sandbox, with an instance of your app running in it. A sandbox defines the environment your app runs in. Currently, we have a pre-built sandbox that provides a VPC, an EKS cluster, and a Route53 zone.
+An install is a sandbox, with an instance of your app running in it. A sandbox defines the environment your app runs in. Currently, we have a pre-built sandbox that provides a VPC, an EKS cluster, and a Route53 zone. You don't need to own the AWS account you want to install to. Nuon just needs an IAM role with the requisite permissions to create a sandbox. You'll then be able to deploy your app to that sandbox, and will have a running install.
 
-You don't need to own the AWS account you want to install to. Nuon just needs an IAM role with the requisite permissions to create a sandbox. You'll then be able to deploy your app to that sandbox, and will have a running install.
+To enable you to provide the best possible experience for your customers, we offer 2 ways to set up that IAM role.
 
-For the purposes of this quickstart, let's create the IAM role in an AWS account that you own:
+### Terraform
+
+If you have admin access to the AWS account, there's a Terraform project in [./install-roles/terraform](./install-roles/terraform) you can use.
 
 1. Authenticate with whatever AWS account you want to create the install in.
-1. Navigate to [./install-roles](./install-roles).
+1. Navigate to [./install-roles/terraform](./install-roles/terraform).
 1. Run `terraform init`, `terraform plan`, and `terraform apply`, just as you would for any other Terraform project.
 
-Use the ARN of that IAM role to provision the sandbox.
+### Cloudformation Quick-Create
+
+If you do not have admin access to the AWS account, you can share a [Cloudformation Quick-Create](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stacks-quick-create-links.html) link with someone who does.
+
+[Click here](https://us-west-2.console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateUrl=https://nuon-sandbox-boostrap-poc.s3.us-west-2.amazonaws.com/index.yaml&stackName=install-roles) to see an example of how this works. The Cloudformation template used for this can be found in [./install-roles/cloudformation-quickcreate](./install-roles/cloudformation-quickcreate), which you can use to set up your own Quick-Create URL.
+
+### Provision the Sandbox
+
+Once the IAM role has been created, you can use it to provision a sandbox.
 
 1. Navigate to [./nuon](./nuon).
 1. Uncomment the `nuon_install` resource in `./nuon/installs.tf`, and paste the IAM role's ARN there.
