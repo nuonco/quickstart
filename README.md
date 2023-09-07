@@ -63,12 +63,12 @@ Once the IAM role has been created, you can use it to provision a sandbox.
 
 For this quickstart, you can create as many installs as you'd like. Having more than one will give you a fuller picture of what Nuon does.
 
-## Deploying to an Install
+## Building and Releasing
 
-Once you've created an app and at least one install, you can use the CLI to build and deploy that app's components. For each component:
+Once you've created an app and at least one install, you can use the CLI to build and release that app's components. For each component:
 
-1. Run `nuon build --component_id={{your_component_id}}`. This will create a build and return it's ID.
-1. Run `nuon deploy --build_id={{your_build_id}} --install_id={{your_install_id}}`. If you have multiple installs and want to deploy to all of them, replace `--install-id` with `--all`.
+1. Run `nuon builds create -c={component_id}` to create a new build and get it's ID.
+1. Run `nuon releases create -c {component_id} -b {build_id}` to create a new release from your build. This will deploy to all of your installs, 10 at a time.
 
 ## Next Steps
 
