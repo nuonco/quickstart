@@ -7,7 +7,7 @@ This repo will introduce you to the basic concepts and tools you'll need to depl
 - [./nuon](./nuon): Terraform for deploying an example app using the Nuon platform.
 - [./example](./example): Source code for the components of the example app.
 - [./install-roles](./install-roles): The IAM roles you need to provision new installs.
-- [./scripts](./scripts): Scripts for installing our CLI and Terraform provider.
+- [./scripts](./scripts): Utility scripts.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ To get started using Nuon, you'll need to sign up for an account, and install ou
 1. A build server and runner will be provisioned for you automatically.
 1. Connect your Github account.
 1. Fork and clone this repo.
-1. Run the install scripts in [./scripts](./scripts).
+1. Run `./scripts/install-cli.sh` to install our CLI.
 1. Open a terminal, and copy your auth token and org ID from the Dashboard:
     1. `export NUON_API_TOKEN={{ your_auth_token }}`
     1. `export NUON_ORG_ID={{ your_org_id }}`
