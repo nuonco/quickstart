@@ -11,7 +11,7 @@ This repo will introduce you to the basic concepts and tools you'll need to depl
 
 ## Getting Started
 
-To get started using Nuon, you'll need to sign up for an account, and install our CLI and TF provider.
+To get started using Nuon, you'll need to sign up for an account, and install our CLI.
 
 1. Sing up using our [Dashboard](https://app.nuon.co/sign-in).
 1. A build server and runner will be provisioned for you automatically.
