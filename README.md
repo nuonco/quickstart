@@ -11,11 +11,11 @@ This repo will introduce you to the basic concepts and tools you'll need to depl
 
 ## Getting Started
 
-To get started using Nuon, you'll need to sign up for an account, and install our CLI.
+To get started using Nuon, you'll need to sign up for an account and install our CLI.
 
-1. Sing up using our [Dashboard](https://app.nuon.co/sign-in).
+1. Sign up using our [Dashboard](https://app.nuon.co/sign-in).
 1. A build server and runner will be provisioned for you automatically.
-1. Connect your Github account.
+1. Connect your GitHub account.
 1. Fork and clone this repo.
 1. Run `./scripts/install-cli.sh` to install our CLI.
 1. Open a terminal, and copy your auth token and org ID from the Dashboard:
@@ -34,7 +34,7 @@ To create the example app in your Nuon org:
 
 ## Creating an Install
 
-An install is a sandbox, with an instance of your app running in it. A sandbox defines the environment your app runs in. Currently, we have a pre-built sandbox that provides a VPC, an EKS cluster, and a Route53 zone. You don't need to own the AWS account you want to install to. Nuon just needs an IAM role with the requisite permissions to create a sandbox. You'll then be able to deploy your app to that sandbox, and will have a running install.
+An install is a sandbox, with an instance of your app running in it. A sandbox defines the environment your app runs in. Currently, we have a pre-built sandbox that provides a VPC, an EKS cluster, and a Route53 zone. You don't need to own the AWS account you want to install to. Nuon just needs an IAM role with the requisite permissions to create a sandbox. You'll then be able to deploy your app to that sandbox and will have a running install.
 
 To enable you to provide the best possible experience for your customers, we offer 2 ways to set up that IAM role.
 
@@ -67,7 +67,7 @@ For this quickstart, you can create as many installs as you'd like. Having more 
 
 Once you've created an app and at least one install, you can use the CLI to build and release that app's components. For each component:
 
-1. Run `nuon builds create -c={component_id}` to create a new build and get it's ID.
+1. Run `nuon builds create -c={component_id}` to create a new build and get its ID.
 1. Run `nuon releases create -c {component_id} -b {build_id}` to create a new release from your build. This will deploy to all of your installs, 10 at a time.
 
 ## Next Steps
