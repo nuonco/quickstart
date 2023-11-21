@@ -1,8 +1,8 @@
-resource "nuon_terraform_module_component" "example" {
-  name   = "example"
+resource "nuon_terraform_module_component" "infra" {
+  name   = "infra"
   app_id = nuon_app.example.id
 
-  connected_repo = {
+  public_repo = {
     directory = "example/terraform"
     repo      = var.example_app_repo
     branch    = "main"

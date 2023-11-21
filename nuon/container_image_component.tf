@@ -1,5 +1,5 @@
-resource "nuon_container_image_component" "httpbin" {
-  name   = "httpbin"
+resource "nuon_container_image_component" "public_image" {
+  name   = "public_image"
   app_id = nuon_app.example.id
 
   public = {

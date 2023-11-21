@@ -1,9 +1,9 @@
-resource "nuon_helm_chart_component" "example" {
-  name       = "Example Helm Chart"
+resource "nuon_helm_chart_component" "helm_chart" {
+  name       = "helm_chart"
   app_id     = resource.nuon_app.example.id
-  chart_name = "example"
+  chart_name = "helm_chart"
 
-  connected_repo = {
+  public_repo = {
     directory = "example/helm"
     repo      = var.example_app_repo
     branch    = "main"
@@ -35,7 +35,7 @@ locals {
     "api.ingresses.internal_domain"          = "api.{{.nuon.install.internal_domain}}"
     "api.nlbs.public_domain"                 = "nlb.{{.nuon.install.public_domain}}"
     "api.nlbs.internal_domain"               = "nlb.internal.{{.nuon.install.internal_domain}}"
-    "api.nlbs.public_domain_certificate_arn" = "nlb.{{.nuon.components.e2e_infra.outputs.public_domain_certificate_arn}}"
+    "api.nlbs.public_domain_certificate_arn" = "nlb.{{.nuon.components.infra.outputs.public_domain_certificate_arn}}"
 
     "env.DEFAULT_VALUE" = "set-by-terraform-provider-as-default"
   }
@@ -47,23 +47,23 @@ locals {
     "env.NUON_INSTALL_ID" = "{{.nuon.install.id}}"
 
     // image component outputs
-    "env.EXTERNAL_IMAGE_TAG"             = "{{.nuon.components.e2e_external_image.image.tag}}"
-    "env.EXTERNAL_IMAGE_REPOSITORY_ARN"  = "{{.nuon.components.e2e_external_image.image.repository.arn}}"
-    "env.EXTERNAL_IMAGE_REPOSITORY_NAME" = "{{.nuon.components.e2e_external_image.image.repository.name}}"
-    "env.EXTERNAL_IMAGE_REPOSITORY_URI"  = "{{.nuon.components.e2e_external_image.image.repository.uri}}"
-    "env.EXTERNAL_IMAGE_REGISTRY_ID"     = "!!str {{.nuon.components.e2e_external_image.image.registry.id}}"
+    "env.EXTERNAL_IMAGE_TAG"             = "{{.nuon.components.public_image.image.tag}}"
+    "env.EXTERNAL_IMAGE_REPOSITORY_ARN"  = "{{.nuon.components.public_image.image.repository.arn}}"
+    "env.EXTERNAL_IMAGE_REPOSITORY_NAME" = "{{.nuon.components.public_image.image.repository.name}}"
+    "env.EXTERNAL_IMAGE_REPOSITORY_URI"  = "{{.nuon.components.public_image.image.repository.uri}}"
+    "env.EXTERNAL_IMAGE_REGISTRY_ID"     = "!!str {{.nuon.components.public_image.image.registry.id}}"
 
     // docker build component outputs
-    "env.DOCKER_BUILD_TAG"             = "{{.nuon.components.e2e_docker_build.image.tag}}"
-    "env.DOCKER_BUILD_REPOSITORY_ARN"  = "{{.nuon.components.e2e_docker_build.image.repository.arn}}"
-    "env.DOCKER_BUILD_REPOSITORY_NAME" = "{{.nuon.components.e2e_docker_build.image.repository.name}}"
-    "env.DOCKER_BUILD_REPOSITORY_URI"  = "{{.nuon.components.e2e_docker_build.image.repository.uri}}"
-    "env.DOCKER_BUILD_REGISTRY_ID"     = "!!str {{.nuon.components.e2e_docker_build.image.registry.id}}"
+    "env.DOCKER_BUILD_TAG"             = "{{.nuon.components.dockerfile.image.tag}}"
+    "env.DOCKER_BUILD_REPOSITORY_ARN"  = "{{.nuon.components.dockerfile.image.repository.arn}}"
+    "env.DOCKER_BUILD_REPOSITORY_NAME" = "{{.nuon.components.dockerfile.image.repository.name}}"
+    "env.DOCKER_BUILD_REPOSITORY_URI"  = "{{.nuon.components.dockerfile.image.repository.uri}}"
+    "env.DOCKER_BUILD_REGISTRY_ID"     = "!!str {{.nuon.components.dockerfile.image.registry.id}}"
 
     // terraform component outputs
-    "env.TERRAFORM_REPO_NAME"                     = "{{.nuon.components.e2e_infra.outputs.repo_name}}"
-    "env.TERRAFORM_BUCKET_NAME"                   = "{{.nuon.components.e2e_infra.outputs.bucket_name}}"
-    "env.TERRAFORM_PUBLIC_DOMAIN_CERTIFICATE_ARN" = "{{.nuon.components.e2e_infra.outputs.public_domain_certificate_arn}}"
+    "env.TERRAFORM_REPO_NAME"                     = "{{.nuon.components.infra.outputs.repo_name}}"
+    "env.TERRAFORM_BUCKET_NAME"                   = "{{.nuon.components.infra.outputs.bucket_name}}"
+    "env.TERRAFORM_PUBLIC_DOMAIN_CERTIFICATE_ARN" = "{{.nuon.components.infra.outputs.public_domain_certificate_arn}}"
 
     // sandbox outputs
     "env.SANDBOX_TYPE"            = "{{.nuon.install.sandbox.type}}"
