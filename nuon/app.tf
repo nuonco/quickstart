@@ -1,3 +1,3 @@
 resource "nuon_app" "example" {
-  name = "example_app"
+  name = "quickstart_test_app"
 }

@@ -3,4 +3,7 @@
 //   app_id       = nuon_app.example.id
 //   region       = "us-west-2"
 //   iam_role_arn = ""
+//   depends_on = [
+//     nuon_app_sandbox.main,
+//   ]
 // }
