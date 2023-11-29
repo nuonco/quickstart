@@ -21,8 +21,6 @@ resource "nuon_docker_build_component" "custom_job_image" {
     repo      = var.example_app_repo
     branch    = "main"
   }
-
-  sync_only = true
 }
 
 # Run the image a k8s job workload.
