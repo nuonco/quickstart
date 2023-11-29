@@ -14,7 +14,7 @@ This repo will introduce you to the basic concepts and tools you'll need to depl
 To get started using Nuon, you'll need to sign up for an account, and install our CLI.
 
 1. Sing up using our [Dashboard](https://app.nuon.co/sign-in).
-1. A build server and runner will be provisioned for you automatically.
+1. A data plane with your management server and build runner will be provisioned with ~ 10 minutes.
 1. Connect your Github account.
 1. Fork and clone this repo.
 1. Run `./scripts/install-cli.sh` to install our CLI.

@@ -1,1 +1,4 @@
 example_app_repo = "https://github.com/your-account/your-repo"
+install_count = 0
+install_region = "us-west-2"
+install_iam_role_arn = ""
